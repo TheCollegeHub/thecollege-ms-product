@@ -37,9 +37,9 @@ const runConsumer = async () => {
       console.log('Message received:', message.value.toString());
 
       try {
-        const { productId, quantity } = JSON.parse(message.value.toString());
+        const { orderNumber, productId, quantity } = JSON.parse(message.value.toString());
         await updateProductStock(productId, quantity);
-        console.log(`Stock updated for product ${productId} removing ${quantity}`);
+        console.log(`Stock updated for product ${productId} removing ${quantity} of order ${orderNumber}`);
       } catch (error) {
         console.error('Error to process kafka message:', error);
       }
