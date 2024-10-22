@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package stock;
+
+service StockService {
+  rpc CheckStock (StockRequest) returns (StockResponse);
+}
+
+message StockRequest {
+  repeated int32 productIds = 1;
+}
+
+message StockResponse {
+  repeated ProductOutOfStock productsOutOfStock = 1;
+}
+
+message ProductOutOfStock {
+  int32 id = 1;
+  string name = 2;
+}

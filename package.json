@@ -1,0 +1,22 @@
+{
+    "name": "thecollege-ms-product",
+    "version": "1.0.0",
+    "description": "Product Service",
+    "main": "server.js",
+    "scripts": {
+        "start": "babel-node server.js"
+    },
+    "author": "Nathan Araujo",
+    "license": "CC BY-NC",
+    "dependencies": {
+        "@grpc/grpc-js": "^1.12.2",
+        "@grpc/proto-loader": "^0.6.13",
+        "mongoose": "^7.5.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.25.7",
+        "@babel/core": "^7.25.8",
+        "@babel/node": "^7.25.7",
+        "@babel/preset-env": "^7.25.8"
+    }
+}
