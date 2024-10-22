@@ -32,3 +32,22 @@ export async function checkStock(productIds) {
     return [];
   }
 }
+
+// Função para atualizar o estoque de um produto
+export async function updateProductStock(productId, quantity) {
+  if (!Product) {
+    console.error('Modelo Product is not defined.');
+    return;
+  }
+
+  try {
+    // Atualiza o estoque do produto
+    await Product.updateOne(
+      { id: productId },
+      { $inc: { stock: -quantity } }  // Reduz o estoque pela quantidade recebida
+    );
+    console.log(`Stock of product ${productId} updated with success.`);
+  } catch (error) {
+    console.error(`Error to updated the stock of product ${productId}:`, error);
+  }
+}

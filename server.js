@@ -1,6 +1,7 @@
 import * as protoLoader from '@grpc/proto-loader';
 import * as grpc from '@grpc/grpc-js';
 import { checkStock } from './service/stock-service';
+import "./queue/cosumers/kafka-consumer"
 const PROTO_PATH = './grpc/protos/stock.proto';
 
 const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
