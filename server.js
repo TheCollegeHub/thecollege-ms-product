@@ -44,5 +44,5 @@ server.bindAsync('0.0.0.0:50052', grpc.ServerCredentials.createInsecure(), (err,
     console.error(err);
     return;
   }
-  console.log(`Stock service running on port ${port}`);
+  console.log(`gRPC Stock service running on port ${port}`);
 });
