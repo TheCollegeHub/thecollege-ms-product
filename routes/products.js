@@ -1,7 +1,7 @@
 import express from "express";
 import { addProduct, getAllproducts, getFavouriteProducts, getNewcollections, getPopularinwomen, 
     getProductsByCategory, getProductsV2, getRelatedProducts, removeProduct, seachProduct, 
-    uploadProduct, toggleFavouriteProduct, getUserFavorites } from "../controllers/product-controller";
+    uploadProduct, toggleFavouriteProduct, getUserFavorites, getProductsByIds } from "../controllers/product-controller";
 const router = express.Router();
 
 router.get('/allproducts', getAllproducts);
@@ -17,6 +17,7 @@ router.get('/v2/favorites/:userId', getUserFavorites);
 router.get('/v2/products/category', getProductsByCategory);
 router.get('/v1/products/search', seachProduct);
 router.get('/upload', uploadProduct);
+router.post('/products', getProductsByIds);
 
 
 

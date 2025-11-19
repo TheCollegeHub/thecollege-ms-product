@@ -28,13 +28,31 @@ export async function getAllproducts(req, res) {
   };
   
   
-  export async function getRelatedProducts(req, res) {
-    console.log("Related Products");
-    const {category} = req.body;
-    const products = await Product.find({ category });
-    const arr = products.slice(0, 4);
-    res.send(arr);
-  };
+  
+export async function getRelatedProducts(req, res) {
+  console.log("Related Products");
+  const {category} = req.body;
+  const products = await Product.find({ category });
+  const arr = products.slice(0, 4);
+  res.send(arr);
+};
+
+export async function getProductsByIds(req, res){
+  const { ids } = req.body;
+
+  if (!Array.isArray(ids) || ids.length === 0) {
+      return res.status(400).json({ message: 'Invalid input, please provide an array of ids.' });
+  }
+
+  try {
+      const products = await Product.find({ id: { $in: ids } });
+      return res.status(200).json(products);
+  } catch (error) {
+      console.error('Error fetching products:', error);
+      return res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
 
   
   
