@@ -1,5 +1,5 @@
 import Consul from 'consul';
-
+const port = process.env.PRODUCTS_SERVICE_PORT || 5002;
 const consulClient = new Consul({
   host: process.env.CONSUL_HOST || 'localhost',
   port: process.env.CONSUL_PORT || '8500',
@@ -8,12 +8,12 @@ const consulClient = new Consul({
 
 export const registerWithConsul = async () => {
   const serviceConfig = {
-    id: `products-service-${process.env.PORT || 4001}`,
+    id: `products-service-${port || 5002}`,
     name: 'products-service',
     address: 'localhost',
-    port: parseInt(process.env.PORT || 4001),
+    port: parseInt(port|| 5002),
     check: {
-      http: `http://host.docker.internal:${process.env.PORT || 4001}/health`,
+      http: `http://host.docker.internal:${port || 5002}/health`,
       interval: '10s',
       timeout: '5s'
     }

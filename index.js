@@ -6,7 +6,7 @@ import { serve, setup } from 'swagger-ui-express';
 import swaggerJsdoc from 'swagger-jsdoc';
 import routes from './routes/routes';
 
-const port = process.env.PORT || 4001;
+const port = process.env.PRODUCTS_SERVICE_PORT || 5002;
 const app = express();
 
 
